@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <h1>Rony Silva</h1>
+
+    <model-viewer
+        style="
+            width: 700px;
+            height: 700px;
+        "
+        ar
+        ar-modes="scene-viewer quick-look webxr"
+        ar-scale="auto"
+        ar-placement="floor"
+        src="./assets/jet10.glb"
+        ios-src="./assets/jet10.usdz"
+        shadow-intesity="1"
+        reveal="auto"
+        camera-controls
+        auto-rotate
+    >
+        <button
+            slot="ar-button"
+        >
+            Ativar AR
+        </button>
+
+        <button
+            id="change-model-button"
+        >
+            Trocar Modelo
+        </button>
+    </model-viewer>
+
+    <script>
+        let changeModelButton = document.getElementById("change-model-button");
+        let modelViewer = document.querySelector("model-viewer")
+
+        changeModelButton.addEventListener("click", () => {
+            modelViewer.src = "./assets/mesa.glb"
+        })
+    </script>
+</body>
+</html>
